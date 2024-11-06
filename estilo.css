@@ -215,7 +215,7 @@ span::before {
         transform: translate(0) rotate(0deg);
     }
     100% {
-        transform: translate(50px) rotate(300deg);
+        transform: translate(50px) rotate(360deg);
     }
 }
 

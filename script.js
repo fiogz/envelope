@@ -77,4 +77,4 @@ const createFloatingText = () => {
 };
 
 // Generar los textos flotantes de forma aleatoria
-setInterval(createFloatingText, 120);  // Ajusta el intervalo según lo que necesites
+setInterval(createFloatingText, 200);  // Ajusta el intervalo según lo que necesites

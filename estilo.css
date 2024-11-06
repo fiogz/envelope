@@ -213,7 +213,7 @@ span::before {
 
 .floating-text {
     position: absolute;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: rgba(231, 31, 71, 0.8);
     font-weight: bold;
     transition: transform 2s ease, opacity 2s ease;

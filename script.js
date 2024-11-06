@@ -20,7 +20,7 @@ envelopeWrapper.addEventListener('click', () => {
 });
 
 let lastHeartTime = 0; // Tiempo del último corazón creado
-const heartInterval = 80; // Intervalo mínimo en milisegundos entre corazones (100ms)
+const heartInterval = 50; // Intervalo mínimo en milisegundos entre corazones (100ms)
 
 const createHeart = (e) => {
     const currentTime = Date.now();
@@ -72,9 +72,9 @@ const createFloatingText = () => {
 
     body.appendChild(textElement);
     
-    // Eliminar el texto después de 2 segundos
-    setTimeout(() => textElement.remove(), 2000);
+    // Eliminar el texto después de 1.5 segundos
+    setTimeout(() => textElement.remove(), 1500);
 };
 
 // Generar los textos flotantes de forma aleatoria
-setInterval(createFloatingText, 200);  // Ajusta el intervalo según lo que necesites
+setInterval(createFloatingText, 120);  // Ajusta el intervalo según lo que necesites

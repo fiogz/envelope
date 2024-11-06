@@ -62,8 +62,8 @@ const createFloatingText = () => {
     textElement.textContent = randomText;  // Asignar el texto aleatorio
     textElement.classList.add('floating-text');  // Añadir la clase para los estilos
 
-    const randomX = Math.random() * (window.innerWidth - 100);  // Restar un valor para no generar fuera de la pantalla
-    const randomY = Math.random() * (window.innerHeight - 100);  // Restar un valor para no generar fuera de la pantalla
+    const randomX = Math.random() * (window.innerWidth - 200);  // Restar un valor para no generar fuera de la pantalla
+    const randomY = Math.random() * (window.innerHeight - 200);  // Restar un valor para no generar fuera de la pantalla
 
     // Establecer la posición en el fondo
     textElement.style.left = `${randomX}px`;

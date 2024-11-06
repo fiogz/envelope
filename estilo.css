@@ -222,6 +222,6 @@ span::before {
     .letter {
         width: 100%;
         height: auto;
-        font-size: 12px;
+        font-size: 0.4rem;
     }
 }

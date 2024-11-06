@@ -210,3 +210,17 @@ span::before {
         transform: translate(50px) rotate(300deg);
     }
 }
+@media (max-width: 600px) {
+    .envelope-wrapper {
+        width: 100%;
+        height: auto;
+    }
+    .envelope {
+        width: 80%;
+        height: auto;
+    }
+    .letter {
+        width: 100%;
+        height: auto;
+    }
+}

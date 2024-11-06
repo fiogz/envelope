@@ -56,7 +56,7 @@ const createFloatingText = () => {
     const textElement = document.createElement('spann');
     
     // Texto aleatorio
-    const texts = ['Te quiero mucho', 'Mi Dani', 'Esposo mío', 'Rohayhueterei', 'Te amo mucho mi amor'];
+    const texts = ['Mi Dani', 'Esposo mío', 'Rohayhueterei', 'Te amo mucho mi amor'];
     const randomText = texts[Math.floor(Math.random() * texts.length)];
 
     textElement.textContent = randomText;  // Asignar el texto aleatorio

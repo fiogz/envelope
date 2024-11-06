@@ -19,19 +19,28 @@ envelopeWrapper.addEventListener('click', () => {
     }
 });
 
-// Evento para corazones que siguen el cursor o toque
+let lastHeartTime = 0; // Tiempo del último corazón creado
+const heartInterval = 80; // Intervalo mínimo en milisegundos entre corazones (100ms)
+
 const createHeart = (e) => {
-    const body = document.body;
-    const heart = document.createElement('span');
-    heart.classList.add('cursor-heart');
-    heart.style.left = `${e.pageX || e.touches[0].pageX}px`; // Usar pageX para el mouse o touches[0].pageX para el toque
-    heart.style.top = `${e.pageY || e.touches[0].pageY}px`; // Similar para Y
-    const size = Math.random() * 5 + 2;
-    heart.style.width = `${size}px`;
-    heart.style.height = `${size}px`;
-    heart.style.transform = `rotate(${Math.random() * 180}deg)`;
-    body.appendChild(heart);
-    setTimeout(() => heart.remove(), 1000);
+    const currentTime = Date.now();
+    if (currentTime - lastHeartTime >= heartInterval) {
+        lastHeartTime = currentTime;
+
+        const body = document.body;
+        const heart = document.createElement('span');
+        heart.classList.add('cursor-heart');
+        heart.style.left = `${e.pageX || e.touches[0].pageX}px`;
+        heart.style.top = `${e.pageY || e.touches[0].pageY}px`;
+        const size = Math.random() * 5 + 2;
+        heart.style.width = `${size}px`;
+        heart.style.height = `${size}px`;
+        heart.style.transform = `rotate(${Math.random() * 180}deg)`;
+        body.appendChild(heart);
+
+        // Eliminar el corazón después de 1 segundo
+        setTimeout(() => heart.remove(), 1000);
+    }
 };
 
 // Detectar movimiento del mouse
@@ -39,3 +48,33 @@ document.addEventListener('mousemove', createHeart);
 
 // Detectar movimiento en pantalla táctil (móviles)
 document.addEventListener('touchmove', createHeart);
+
+
+// Función para crear los textos flotantes aleatorios
+const createFloatingText = () => {
+    const body = document.body;
+    const textElement = document.createElement('spann');
+    
+    // Texto aleatorio
+    const texts = ['Te amo', 'Te quiero mucho', 'Mi Dani', 'Esposo mío', 'Mi principe', 'Rohayhueterei', 'Te amo mucho mi amor'];
+    const randomText = texts[Math.floor(Math.random() * texts.length)];
+
+    textElement.textContent = randomText;  // Asignar el texto aleatorio
+    textElement.classList.add('floating-text');  // Añadir la clase para los estilos
+
+    // Generar posiciones aleatorias
+    const randomX = Math.random() * window.innerWidth;
+    const randomY = Math.random() * window.innerHeight;
+
+    // Establecer la posición en el fondo
+    textElement.style.left = `${randomX}px`;
+    textElement.style.top = `${randomY}px`;
+
+    body.appendChild(textElement);
+    
+    // Eliminar el texto después de 2 segundos
+    setTimeout(() => textElement.remove(), 2000);
+};
+
+// Generar los textos flotantes de forma aleatoria
+setInterval(createFloatingText, 200);  // Ajusta el intervalo según lo que necesites

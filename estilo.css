@@ -37,6 +37,8 @@ body {
     /* Contenedor principal centrado */
     height: 100vh;
     display: grid;
+    position: relative;
+    z-index: 100;
     place-items: center;
 }
 
@@ -252,6 +254,13 @@ span::before {
 .envelope-wrapper {
     position: relative;
     z-index: 10; /* Asegura que el sobre y la carta tengan prioridad sobre los textos flotantes */
+}
+
+.letter {
+    position: absolute; /* Cambiado a absolute para que no interfiera con el sobre */
+    top: 0;  /* Asegura que la carta quede en el lugar adecuado dentro del sobre */
+    left: 0;
+    z-index: 5;  /* Asegura que la carta quede debajo del sobre, sin interferir con él */
 }
 
 @media (max-width: 600px) {

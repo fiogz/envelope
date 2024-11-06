@@ -210,6 +210,34 @@ span::before {
         transform: translate(50px) rotate(300deg);
     }
 }
+
+/* Estilos para los textos flotantes */
+.floating-text {
+    position: absolute;
+    font-size: 1.2rem; /* Tamaño del texto */
+    color: rgba(231, 31, 71, 0.8);  /* Color del texto */
+    font-weight: bold;
+    transition: transform 2s ease, opacity 2s ease;  /* Animación de mover y desaparecer */
+    opacity: 1;
+    pointer-events: none;  /* El texto no interfiere con otros elementos */
+    animation: floatText 5s ease-in-out forwards;  /* Animación de flotación */
+}
+
+@keyframes floatText {
+    0% {
+        transform: translate(0, 0);  /* Empieza en su posición original */
+        opacity: 1;
+    }
+    50% {
+        transform: translate(0, -30px);  /* Sube un poco */
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(0, -50px);  /* Se mueve más hacia arriba */
+        opacity: 0;  /* Desaparece */
+    }
+}
+
 @media (max-width: 600px) {
     .envelope-wrapper {
         width: 100%;

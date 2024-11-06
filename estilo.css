@@ -13,6 +13,14 @@
     --spacing-unit: 1.2rem; /* Base para espaciado ampliado */
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Evita el desbordamiento */
+    box-sizing: border-box;
+}
+
 body {
     /* Estilos generales de la página */
     margin: 0;

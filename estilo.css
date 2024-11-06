@@ -256,11 +256,6 @@ span::before {
     z-index: 10; /* Asegura que el sobre y la carta tengan prioridad sobre los textos flotantes */
 }
 
-.letter {
-    z-index: 5; /* La carta también debe tener prioridad sobre los textos flotantes */
-    /* Otros estilos de la carta */
-}
-
 @media (max-width: 600px) {
     .envelope-wrapper {
         width: 100%;

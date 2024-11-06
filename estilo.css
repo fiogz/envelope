@@ -107,7 +107,7 @@ body {
     width: 1.125rem; /* Tamaño del corazón */
     height: 1.125rem;
     background: var(--heart-color); /* Color del corazón */
-    z-index: 1;
+    z-index: 3;
     transform: translate(-50%, -20%) rotate(45deg); /* Colocación y rotación */
     transition: transform 1.5s ease-in-out 1.5s; /* Animación de rotación */
     box-shadow: 0 0.125rem 0.5rem var(--shadow-color); /* Sombra */

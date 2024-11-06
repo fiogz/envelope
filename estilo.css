@@ -102,7 +102,7 @@ body {
 .heart {
     /* Estilos del corazón en el sobre */
     position: absolute;
-    top: 54%;
+    top: 50.5%;
     left: 50%;
     width: 1.125rem; /* Tamaño del corazón */
     height: 1.125rem;
@@ -222,5 +222,8 @@ span::before {
     .letter {
         width: 100%;
         height: auto;
+    }
+    .heart {
+        top: 55.5%;
     }
 }

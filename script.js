@@ -20,7 +20,7 @@ envelopeWrapper.addEventListener('click', () => {
 });
 
 let lastHeartTime = 0; // Tiempo del último corazón creado
-const heartInterval = 50; // Intervalo mínimo en milisegundos entre corazones (100ms)
+const heartInterval = 80; // Intervalo mínimo en milisegundos entre corazones (100ms)
 
 const createHeart = (e) => {
     const currentTime = Date.now();
@@ -56,14 +56,13 @@ const createFloatingText = () => {
     const textElement = document.createElement('spann');
     
     // Texto aleatorio
-    const texts = ['Te amo', 'Te quiero mucho', 'Mi Dani', 'Esposo mío', 'Rohayhueterei', 'Te amo mucho mi amor'];
+    const texts = ['Te amo', 'Te quiero mucho', 'Mi Dani', 'Esposo mío', 'Mi principe', 'Rohayhueterei', 'Te amo mucho mi amor'];
     const randomText = texts[Math.floor(Math.random() * texts.length)];
 
     textElement.textContent = randomText;  // Asignar el texto aleatorio
     textElement.classList.add('floating-text');  // Añadir la clase para los estilos
 
     const randomX = Math.random() * (window.innerWidth - 200);  // Restar un valor para no generar fuera de la pantalla
-    const randomY = Math.random() * (window.innerHeight - 100);  // Restar un valor para no generar fuera de la pantalla
 
     // Establecer la posición en el fondo
     textElement.style.left = `${randomX}px`;
@@ -71,8 +70,8 @@ const createFloatingText = () => {
 
     body.appendChild(textElement);
     
-    // Eliminar el texto después de 1.5 segundos
-    setTimeout(() => textElement.remove(), 1500);
+    // Eliminar el texto después de 2 segundos
+    setTimeout(() => textElement.remove(), 2000);
 };
 
 // Generar los textos flotantes de forma aleatoria

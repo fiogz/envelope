@@ -13,14 +13,6 @@
     --spacing-unit: 1.2rem; /* Base para espaciado ampliado */
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* Evita el desbordamiento */
-    box-sizing: border-box;
-}
-
 body {
     /* Estilos generales de la página */
     margin: 0;
@@ -35,14 +27,14 @@ body {
 
 .container {
     /* Contenedor principal centrado */
+    position: relative;
     height: 100vh;
     display: grid;
-    position: relative;
-    z-index: 100;
     place-items: center;
+    margin: 2rem; /* Deja espacio alrededor del contenido */
+    z-index: 2; /* Eleva el contenedor sobre el texto flotante */
 }
 
-/* Estilos para el sobre */
 .container > .envelope-wrapper {
     /* Contenedor del sobre con fondo y sombra */
     background: var(--bg-envelope-color);
@@ -56,8 +48,8 @@ body {
     height: 17.25rem; /* Altura del sobre */
 }
 
-/* Solapa superior del sobre */
 .envelope-wrapper > .envelope::before {
+    /* Solapa superior del sobre */
     content: "";
     position: absolute;
     top: 0;
@@ -69,8 +61,8 @@ body {
     transition: all 0.5s ease-in-out 0.7s; /* Animación de la solapa */
 }
 
-/* Parte inferior de la cubierta del sobre */
 .envelope-wrapper > .envelope::after {
+    /* Parte inferior de la cubierta del sobre */
     content: "";
     position: absolute;
     z-index: 2;
@@ -82,14 +74,13 @@ body {
     border-left: 11.25rem solid var(--envelope-cover);
 }
 
-/* Efecto cuando el sobre está abierto */
-.envelope-wrapper.open {
-    transform: translateY(20%); /* Desplazamiento del sobre */
+.envelope-wrapper.open{
+    transform: translateY(20%); /* Desplazamiento total en un segundo clic */
     transition: transform 1s ease-in-out; /* Animación suave */
 }
 
-/* Estilo de la carta dentro del sobre */
 .envelope > .letter {
+    /* Estilo de la carta dentro del sobre */
     position: absolute;
     right: 20%;
     bottom: 0.7rem;
@@ -103,20 +94,20 @@ body {
     padding: 0.5rem 0.5rem 1.2rem 0.5rem; /* Espaciado interno de la carta */
 }
 
-/* Estilos de texto en la carta */
 .envelope > .letter > .text {
+    /* Estilos de texto en la carta */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: var(--txt-color);
     text-align: left;
     font-size: 0.7rem; /* Tamaño de fuente */
 }
 
-/* Estilos para los corazones que siguen al cursor */
 .heart {
+    /* Estilos del corazón en el sobre */
     position: absolute;
     top: 50.5%;
     left: 50%;
-    width: 1.125rem;
+    width: 1.125rem; /* Tamaño del corazón */
     height: 1.125rem;
     background: var(--heart-color); /* Color del corazón */
     z-index: 4;
@@ -126,9 +117,9 @@ body {
     cursor: pointer;
 }
 
-/* Animación para los corazones */
 .heart:before, 
 .heart:after {
+    /* Creación de los semicírculos que completan la forma del corazón */
     content: "";
     position: absolute;
     width: 1.125rem;
@@ -138,35 +129,34 @@ body {
 }
 
 .heart:before {
-    top: -0.5625rem;
+    top: -0.5625rem; /* Colocación del círculo izquierdo */
 }
 
 .heart:after {
-    right: 0.5625rem;
+    right: 0.5625rem; /* Colocación del círculo derecho */
 }
 
-/* Estilos para cuando el sobre está abierto */
 .flap > .envelope:before {
-    transform: rotateX(180deg); /* Rota la solapa */
+    /* Animación para abrir la solapa del sobre */
+    transform: rotateX(180deg);
     z-index: 0;
 }
 
-/* Animación para mover la carta al abrir el sobre */
 .flap > .envelope > .letter {
+    /* Animación para mover la carta al abrir el sobre */
     bottom: 14rem;
     transform: scale(1);
     transition-delay: 1s;
 }
 
-/* Rotación del corazón al abrir el sobre */
 .flap > .heart {
+    /* Rotación del corazón al abrir el sobre */
     transform: rotate(90deg);
     transition-delay: 0.4s;
 }
 
-/* Movimiento del sobre y carta cuando se abre */
 .flap > .envelope-wrapper.open {
-    transform: translateY(-100px); /* Ajusta la distancia del sobre */
+    transform: translateY(-100px); /* Ajusta la distancia según tus necesidades */
     transition: transform 2s ease-in-out; /* Cambia a 3s para hacer la subida más lenta */
 }
 
@@ -175,91 +165,79 @@ body {
     transform: translateY(90px); /* Baja solo el sobre */
 }
 
-/* Estilo de la carta */
 .letter {
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out; /* Transición para cuando sube la tarjeta */
 }
 
 .letter.opened {
-    transform: translateY(-120%); /* La carta sube más para estar más visible */
+    transform: translateY(-120%); /* La tarjeta sube para estar más visible */
 }
 
-/* Estilos para los corazones que siguen al cursor */
 span {
+    /* Estilo para los corazones que siguen al cursor */
     position: absolute;
-    z-index: -1; /* Asegura que el corazón no aparezca por encima del sobre */
+    z-index: -1; /* Esto asegura que el corazón no aparezca por encima del sobre */
     pointer-events: none; /* Hace que el elemento sea solo visual */
     filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); /* Sombra para el corazón */
-    animation: fadeInOut 1s linear infinite;
+    animation: fadeInOut 1s linear infinite; /* Animación de aparición y desaparición */
 }
 
 @keyframes fadeInOut {
-    0%, 100% {
+    /* Animación de opacidad */
+    0%,100% {
         opacity: 0;
     }
-    20%, 80% {
+    20%,80% {
         opacity: 1;
     }
 }
 
 span::before {
+    /* Corazón de fondo que sigue al cursor */
     content: '';
     position: absolute;
     width: 30px;
     height: 30px;
     background: url(image.png); /* Imagen del corazón */
     background-size: cover;
-    animation: moveShape 2s linear infinite;
+    animation: moveShape 2s linear infinite; /* Movimiento giratorio */
 }
 
 @keyframes moveShape {
+    /* Animación de giro */
     0% {
         transform: translate(0) rotate(0deg);
     }
     100% {
-        transform: translate(50px) rotate(360deg);
+        transform: translate(20px) rotate(30deg);
     }
 }
 
 /* Estilos para los textos flotantes */
 .floating-text {
     position: absolute;
-    font-size: 1rem;
-    color: rgba(231, 31, 71, 0.8);
+    font-size: 1.5rem; /* Tamaño del texto */
+    color: rgba(231, 31, 71, 0.8);  /* Color del texto */
     font-weight: bold;
-    transition: transform 2s ease, opacity 2s ease;
+    transition: transform 2s ease, opacity 2s ease;  /* Animación de mover y desaparecer */
     opacity: 1;
-    pointer-events: none;
-    animation: floatText 5s ease-in-out forwards;
-    max-width: 90vw;
-    max-height: 90vh;
-    white-space: nowrap;
-    z-index: -1; /* Asegura que los textos flotantes estén debajo del sobre y la carta */
+    pointer-events: none;  /* El texto no interfiere con otros elementos */
+    animation: floatText 5s ease-in-out forwards;  /* Animación de flotación */
+    z-index: 1; /* Debajo del contenido principal */
+    top: -2rem; /* Ajusta la posición de inicio para que esté fuera del contenido */
 }
 
-/* Animación para los textos flotantes */
 @keyframes floatText {
     0% {
-        transform: translate(0, 0);
+        transform: translate(0, 0);  /* Empieza en su posición original */
         opacity: 1;
     }
     50% {
-        transform: translate(0, -30px); /* Mueve el texto hacia arriba */
-        opacity: 0.7;
+        transform: translate(0, -30px);  /* Sube un poco */
+        opacity: 0.8;
     }
     100% {
-        transform: translate(0, -50px); /* Se mueve aún más hacia arriba */
+        transform: translate(0, -60px); /* Termina más arriba */
         opacity: 0;
-    }
-}
-
-/* Responsividad para pantallas pequeñas */
-@media (max-width: 600px) {
-    .envelope-wrapper {
-        width: 16rem; /* Ajuste de tamaño para pantallas pequeñas */
-    }
-
-    .letter {
-        width: 70%; /* Acomoda la carta para pantallas más pequeñas */
     }
 }

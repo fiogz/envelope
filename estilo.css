@@ -102,12 +102,12 @@ body {
 .heart {
     /* Estilos del corazón en el sobre */
     position: absolute;
-    top: 50.5%;
+    top: 50%;
     left: 50%;
     width: 1.125rem; /* Tamaño del corazón */
     height: 1.125rem;
     background: var(--heart-color); /* Color del corazón */
-    z-index: 3;
+    z-index: 4;
     transform: translate(-50%, -20%) rotate(45deg); /* Colocación y rotación */
     transition: transform 1.5s ease-in-out 1.5s; /* Animación de rotación */
     box-shadow: 0 0.125rem 0.5rem var(--shadow-color); /* Sombra */
